@@ -209,9 +209,10 @@ Set any `width`/`height`. The drawing scales from its `viewBox`.
 
 ## Performance
 
-The icons are built to cost close to nothing, even with hundreds on one page:
+The icons are built to be light:
 
-- **Only `transform` and `opacity` are animated.** The browser can run these on the GPU compositor, so the animation causes no layout or repaint work and uses no main-thread JavaScript. CI rejects any keyframe that animates another property.
+- **Only `transform` and `opacity` are animated**, the cheapest properties to animate, and no JavaScript runs. CI rejects any keyframe that animates another property.
+- **Measured cost.** A browser repaints an animated SVG inside an `<img>` on the main thread while it moves. In Chrome on an M-series Mac, all seven shapes on one page used about 3–4% of the main thread, and the same seven shapes repeated 300 times used about 10%. Repeats of one file are cheap because the browser shares a single copy. Inlining an SVG's markup in your HTML instead of using `<img>` lets the browser animate it on the GPU, at close to no main-thread cost.
 - **About 1.4 KB per file** before compression, and around 700 bytes gzipped. No fonts, images or scripts are pulled in.
 - **No JavaScript** is needed to animate. The optional JS entry point only hands you the SVG strings.
 - **Browsers skip off-screen work.** Animations inside `<img>` elements that aren't visible aren't painted.
