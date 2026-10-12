@@ -16,6 +16,10 @@
 </p>
 
 <p align="center">
+  <a href="https://lituus-io.github.io/tetromino/"><b>Live demo</b></a>
+</p>
+
+<p align="center">
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
   <a href="https://www.npmjs.com/package/@lituus-io/tetromino"><img alt="npm" src="https://img.shields.io/npm/v/@lituus-io/tetromino.svg"></a>
 </p>
@@ -64,7 +68,7 @@ Every file:
 - stops moving for people who have reduced motion turned on in their system settings
 - has a static frame you can request with `#still`
 
-A live demo page is in [`docs/index.html`](docs/index.html). Open it locally, or turn on GitHub Pages for the `docs/` folder.
+**[See the live demo →](https://lituus-io.github.io/tetromino/)** (every shape, every size, the still frame and recolouring)
 
 ## Install
 
@@ -115,7 +119,7 @@ Paste the file contents into your HTML. Then page CSS can recolour it, delay it,
 <svg class="still" …>…</svg>
 ```
 
-Each file defines its cell graphic with `id="c"`. If you inline **several different shapes on one page**, rename that id in each copy (for example `c` → `c-t` and `href="#c"` → `href="#c-t"`) so they don't pick up each other's colours. The demo page shows how this is done.
+Each file defines its cell graphic with `id="c"`. If you inline **several different shapes on one page**, rename that id in each copy (for example `c` → `c-t` and `href="#c"` → `href="#c-t"`) so they don't pick up each other's colours. The [demo page](https://lituus-io.github.io/tetromino/) shows how this is done.
 
 ### JavaScript / TypeScript
 
