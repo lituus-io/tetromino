@@ -17,6 +17,19 @@ SHAPES = "iotszjl"
 EXCLUDED = ["spin", "turn", "wobble", "@keyframes s{", "@keyframes t{", "@keyframes w{"]
 # Text that must not appear anywhere in the published tree.
 BANNED_WORDS = re.compile("te" + "tris", re.I)
+# Only compositor-friendly properties may be animated.
+ALLOWED_PROPS = {"transform", "opacity", "animation-timing-function"}
+
+
+def keyframe_props(css):
+    """Yield every property name declared inside @keyframes blocks."""
+    for m in re.finditer(r"@keyframes\s*[\w-]+\s*\{", css):
+        depth, i = 1, m.end()
+        while depth and i < len(css):
+            depth += {"{": 1, "}": -1}.get(css[i], 0)
+            i += 1
+        body = css[m.end():i - 1]
+        yield from re.findall(r"([a-z-]+)\s*:", re.sub(r"[\d.,% ]+\{", "{", body))
 
 errors = []
 for k in SHAPES:
@@ -36,6 +49,9 @@ for k in SHAPES:
         errors.append(f"{p.name}: missing role/aria-label")
     if len(text.encode()) > BUDGET:
         errors.append(f"{p.name}: {len(text.encode())} B exceeds {BUDGET} B budget")
+    bad = set(keyframe_props(text)) - ALLOWED_PROPS
+    if bad:
+        errors.append(f"{p.name}: animates non-compositor properties {sorted(bad)}")
     for word in EXCLUDED:
         if word in text:
             errors.append(f"{p.name}: contains excluded motion {word!r}")

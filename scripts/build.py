@@ -31,7 +31,7 @@ def n(v):  # compact number formatting
     s = f"{v:.2f}".rstrip("0").rstrip(".")
     return s[1:] if s.startswith("0.") else s
 
-A = "2.4s {} var(--delay,0s) infinite"
+A = "2.4s {} var(--delay,0s) var(--loops,infinite)"
 STYLE = (
     # drop: falls in, squashes, settles
     ".p{animation:d " + A.format("cubic-bezier(.5,0,.5,1)") + ";transform-box:fill-box;transform-origin:50% 100%}"

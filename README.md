@@ -33,6 +33,7 @@
   - [CSS background or `mask`](#css-background-or-mask)
 - [Customising](#customising)
 - [Sizes and legibility](#sizes-and-legibility)
+- [Performance](#performance)
 - [Accessibility](#accessibility)
 - [Browser support](#browser-support)
 - [Pro pack](#pro-pack)
@@ -177,6 +178,7 @@ All the controls are CSS custom properties or classes. They take effect when the
 |---------|---------|--------|
 | `--c` | `--c: #0f766e` | Fill colour of the four cells. The highlight and edge shading adapt to it. |
 | `--delay` | `--delay: .45s` | Starts the animation later. Stagger a row by giving each icon a slightly larger delay. |
+| `--loops` | `--loops: 1` | How many times the animation plays (default `infinite`). Use `1` for a one-time entrance. |
 | `#still` | `tetromino-t.svg#still` | Static frame. Works with `<img>` too. |
 | `.still` | `<svg class="still">` | Static frame for inline SVG. |
 
@@ -200,6 +202,16 @@ The animation loops every 2.4 s. The drop takes up the first ~55% of each cycle 
 | < 20 px | The face is hidden automatically, leaving just the shape and colour, which is what makes it recognisable at that size |
 
 Set any `width`/`height`. The drawing scales from its `viewBox`.
+
+## Performance
+
+The icons are built to cost close to nothing, even with hundreds on one page:
+
+- **Only `transform` and `opacity` are animated.** The browser can run these on the GPU compositor, so the animation causes no layout or repaint work and uses no main-thread JavaScript. CI rejects any keyframe that animates another property.
+- **About 1.4 KB per file** before compression, and around 700 bytes gzipped. No fonts, images or scripts are pulled in.
+- **No JavaScript** is needed to animate. The optional JS entry point only hands you the SVG strings.
+- **Browsers skip off-screen work.** Animations inside `<img>` elements that aren't visible aren't painted.
+- **Each cycle mostly rests.** The drop takes about 1.3 s of each 2.4 s loop. Set `--loops: 1` when you only need it once.
 
 ## Accessibility
 
