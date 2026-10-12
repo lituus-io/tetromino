@@ -229,10 +229,13 @@ This repository is the **free core**: the seven base shapes with the default dro
 
 A paid **Pro pack** extends the same characters. It is sold separately under a commercial license and is not part of this repository:
 
-- **Extra expressions:** more faces and moods for every shape
-- **More motions:** *spin*, *turn* (quarter-turn clicks with overshoot) and *wobble* (a damped jelly rock), each selectable per icon
-- **Lottie and GIF exports** for apps, slides, chat and anywhere SVG doesn't fit
-- **Ready-made components** for popular frameworks
+- **Dance moves:** every character dances (bop, shimmy, twist, wave-through, robot, disco, hop-step and spin-out), synced to your tempo with one `--bpm` variable
+- **Status animations:** loader, progress, success, error, sleepy and thinking
+- **More motions:** spin, turn, wobble, squash and melt
+- **Extra expressions:** nine moods plus winter, halloween and party looks
+- **Scenes:** wave, stack loader, line clear, conversation, conga line, dance-off and a dance floor
+- **Lottie, GIF, WebP and PNG exports** for apps, slides, chat and anywhere SVG doesn't fit
+- **Components:** a Web Component with React and Vue wrappers, with eye-follow, squish, drag, scroll reveal and a toggle switch
 
 <!-- Replace with your storefront link(s) when the pack is live. -->
 The Pro pack is coming soon. Watch or star this repository to get notified when it launches.
