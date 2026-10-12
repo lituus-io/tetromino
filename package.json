@@ -1,6 +1,6 @@
 {
   "name": "@lituus-io/tetromino",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Seven tiny animated four-block SVG icons. Dependency-free, recolourable with one CSS variable, under 1.5 KB each.",
   "keywords": [
     "svg",
@@ -19,7 +19,7 @@
     "url": "git+https://github.com/lituus-io/tetromino.git"
   },
   "license": "MIT",
-  "author": "lituus-io",
+  "author": "lituus-io <spicyzhug@gmail.com>",
   "type": "module",
   "main": "./index.js",
   "module": "./index.js",

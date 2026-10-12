@@ -71,7 +71,7 @@ A live demo page is in [`docs/index.html`](docs/index.html). Open it locally, or
 **CDN (no install).** Link a file straight from jsDelivr. Pin a version tag in production:
 
 ```html
-<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.0.0/svg/tetromino-t.svg"
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.0.1/svg/tetromino-t.svg"
      width="32" height="32" alt="T block">
 ```
 
@@ -277,4 +277,7 @@ New motions and expressions are part of the Pro pack, so pull requests that add 
 
 ## License
 
-[MIT](LICENSE) © lituus-io. Covers the code and the icons in this repository. The Pro pack is licensed separately.
+Copyright © 2026 lituus-io. All rights reserved.
+Author: spicyzhug@gmail.com
+
+The code and icons in this repository are released under the [MIT License](LICENSE). The Pro pack is licensed separately.

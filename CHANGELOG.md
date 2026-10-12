@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 (2026-10-12)
+
+- Cell colour is now set through a per-shape CSS rule, so `--c` recolouring and the default colours behave the same in every browser
+- `--loops` sets how many times the animation plays
+- CI rejects keyframes that animate anything other than `transform` and `opacity`
+
 ## 1.0.0 (2026-10-12)
 
 First public release.

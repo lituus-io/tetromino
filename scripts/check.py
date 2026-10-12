@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# Author: spicyzhug@gmail.com
+# Copyright (c) 2026 lituus-io. All rights reserved.
+# Licensed under the MIT License (see LICENSE).
 """Sanity checks for the published files. Exits non-zero on any failure.
 
 - every SVG is well-formed XML with the expected viewBox and accessible label
