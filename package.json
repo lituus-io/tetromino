@@ -1,0 +1,45 @@
+{
+  "name": "@lituus-io/tetromino",
+  "version": "1.0.0",
+  "description": "Seven tiny animated four-block SVG icons. Dependency-free, recolourable with one CSS variable, under 1.5 KB each.",
+  "keywords": [
+    "svg",
+    "icons",
+    "animated-icons",
+    "emoji",
+    "tetromino",
+    "polyomino",
+    "blocks",
+    "css-animation"
+  ],
+  "homepage": "https://github.com/lituus-io/tetromino#readme",
+  "bugs": "https://github.com/lituus-io/tetromino/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lituus-io/tetromino.git"
+  },
+  "license": "MIT",
+  "author": "lituus-io",
+  "type": "module",
+  "main": "./index.js",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./svg/*": "./svg/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "svg/"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "python3 scripts/build.py",
+    "test": "python3 scripts/check.py && node --input-type=module -e \"import s,{names,dataUri} from './index.js'; if(names.length!==7||!dataUri('t').startsWith('data:image/svg+xml,'))process.exit(1); console.log('ok: js entry')\""
+  }
+}
