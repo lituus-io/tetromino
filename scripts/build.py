@@ -5,8 +5,9 @@
 """Generate the seven animated block SVGs, the JS entry point, and the demo page.
 
 Standard library only. Run from anywhere: `python3 scripts/build.py`.
-Every file under svg/, index.js, index.d.ts and docs/index.html is generated
-here, so edit this script rather than the outputs.
+svg/tetromino-*.svg, index.js, index.d.ts and docs/index.html are generated
+here, so edit this script rather than the outputs. The motion loops in
+svg/motion/ are source files; this script only shows them on the demo page.
 """
 import json
 from pathlib import Path
@@ -128,6 +129,14 @@ recolor = "".join(
     f'<td>{inline(f"{k}alt", s, 64, f"--c:{alt[i]};--delay:{i*0.15:.2f}s")}</td>'
     for i, (k, s) in enumerate(files.items()))
 still = "".join(f"<td>{img(k, s, 48, '#still')}</td>" for k, s in files.items())
+MOTIONS = ["spin", "turn", "wobble", "squash", "melt"]
+
+def motion(k, m, size=48):  # inline copy; each motion file already uses unique ids
+    s = (SVG_DIR / "motion" / f"tetromino-{k}-{m}.svg").read_text().strip()
+    return s.replace(' id="still"', "").replace('width="32" height="32"', f'width="{size}" height="{size}"', 1)
+
+motion_rows = "".join(
+    f"<tr><th>{m}</th>" + "".join(f"<td>{motion(k, m)}</td>" for k in files) + "</tr>" for m in MOTIONS)
 sizes = "".join(f"<td>{len(s.encode())} B</td>" for s in files.values())
 heads = "".join(f"<th>{k.upper()}</th>" for k in files)
 
@@ -144,12 +153,15 @@ table{{border-collapse:collapse}} td,th{{padding:8px 10px;text-align:center;vert
 th{{color:var(--mut);font-weight:500;font-size:13px}} td{{font-size:12px;color:var(--mut)}}
 </style></head><body><main>
 <h1>Tetromino</h1>
-<p>Seven animated four-block icons, each a single dependency-free SVG under 1.5&nbsp;KB.
+<p>Seven animated four-block icons in six animations, each a single dependency-free SVG of 1.5–3&nbsp;KB.
 Below 20px the face drops away so the outline and colour carry it.
 <a href="https://github.com/lituus-io/tetromino">Source on GitHub</a>. &copy; 2026 lituus-io. All rights reserved. MIT License.</p>
 <h2>Every size (as &lt;img&gt;)</h2><div class="wrap"><table><tr><th></th>{heads}</tr>{"".join(rows)}
 <tr><th>file</th>{sizes}</tr></table></div>
 <h2>Static frame (<code>#still</code>)</h2><div class="wrap"><table><tr><th></th>{heads}</tr><tr><th>48px</th>{still}</tr></table></div>
+<h2>Motions (<code>svg/motion/</code>)</h2>
+<p>Five more loops for every shape: spin, turn, wobble, squash and melt. Each is a standalone SVG under 3&nbsp;KB with the same controls.</p>
+<div class="wrap"><table><tr><th></th>{heads}</tr>{motion_rows}</table></div>
 <h2>Recoloured and staggered with CSS variables (<code>--c</code>, <code>--delay</code>)</h2>
 <div class="wrap"><table><tr>{recolor}</tr></table></div>
 </main></body></html>

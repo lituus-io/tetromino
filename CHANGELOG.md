@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 (2026-10-13)
+
+- Five new motions for every shape, as 35 animated SVGs in `svg/motion/`: spin, turn, wobble, squash and melt
+- Each motion file uses its own ids and class names, so any number can be inlined on one page
+- The demo page and README show every motion
+
 ## 1.0.1 (2026-10-12)
 
 - Cell colour is now set through a per-shape CSS rule, so `--c` recolouring and the default colours behave the same in every browser

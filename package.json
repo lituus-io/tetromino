@@ -1,7 +1,7 @@
 {
   "name": "@lituus-io/tetromino",
-  "version": "1.0.1",
-  "description": "Seven tiny animated four-block SVG icons. Dependency-free, recolourable with one CSS variable, under 1.5 KB each.",
+  "version": "1.1.0",
+  "description": "Seven tiny animated four-block SVG icons with drop, spin, turn, wobble, squash and melt animations. Dependency-free and recolourable with one CSS variable.",
   "keywords": [
     "svg",
     "icons",

@@ -11,8 +11,8 @@
 </p>
 
 <p align="center">
-  Seven tiny, friendly, animated four-block icons.<br>
-  One self-contained SVG per shape · no JavaScript · no dependencies · under 1.5&nbsp;KB each.
+  Seven tiny, friendly, animated four-block icons, in six animations.<br>
+  One self-contained SVG per icon · no JavaScript · no dependencies · 1.5–3&nbsp;KB each.
 </p>
 
 <p align="center">
@@ -29,6 +29,7 @@
 ## Contents
 
 - [What's included](#whats-included)
+- [Motions](#motions)
 - [Install](#install)
 - [Usage](#usage)
   - [As an image](#as-an-image)
@@ -47,7 +48,7 @@
 
 ## What's included
 
-Tetrominoes are the seven shapes you can make by joining four equal squares edge to edge. This library draws each one as a small character with eyes, a smile and a soft highlight. It plays a gentle **drop** animation: the shape falls in, squashes on landing, settles, and blinks.
+Tetrominoes are the seven shapes you can make by joining four equal squares edge to edge. This library draws each one as a small character with eyes, a smile and a soft highlight. The default icons play a gentle **drop** animation: the shape falls in, squashes on landing, settles, and blinks. Five more [motions](#motions) (spin, turn, wobble, squash and melt) come with every shape, for 42 animated icons in all.
 
 | Shape | File | Default colour |
 |:-----:|------|----------------|
@@ -68,14 +69,32 @@ Every file:
 - stops moving for people who have reduced motion turned on in their system settings
 - has a static frame you can request with `#still`
 
-**[See the live demo →](https://lituus-io.github.io/tetromino/)** (every shape, every size, the still frame and recolouring)
+**[See the live demo →](https://lituus-io.github.io/tetromino/)** (every shape, every size, the motions, the still frame and recolouring)
+
+## Motions
+
+Each shape also comes in five looping motions, in [`svg/motion/`](svg/motion/). The file name is `tetromino-<shape>-<motion>.svg`, and every control below (`--c`, `--delay`, `--loops`, `#still`) works the same way.
+
+<table>
+<tr><th></th><th>I</th><th>O</th><th>T</th><th>S</th><th>Z</th><th>J</th><th>L</th></tr>
+<tr><td><b>Spin</b><br><code>motion/spin</code></td><td><img src="svg/motion/tetromino-i-spin.svg" width="56" height="56" alt="I block, spin" title="motion/spin/i"></td><td><img src="svg/motion/tetromino-o-spin.svg" width="56" height="56" alt="O block, spin" title="motion/spin/o"></td><td><img src="svg/motion/tetromino-t-spin.svg" width="56" height="56" alt="T block, spin" title="motion/spin/t"></td><td><img src="svg/motion/tetromino-s-spin.svg" width="56" height="56" alt="S block, spin" title="motion/spin/s"></td><td><img src="svg/motion/tetromino-z-spin.svg" width="56" height="56" alt="Z block, spin" title="motion/spin/z"></td><td><img src="svg/motion/tetromino-j-spin.svg" width="56" height="56" alt="J block, spin" title="motion/spin/j"></td><td><img src="svg/motion/tetromino-l-spin.svg" width="56" height="56" alt="L block, spin" title="motion/spin/l"></td></tr>
+<tr><td><b>Turn</b><br><code>motion/turn</code></td><td><img src="svg/motion/tetromino-i-turn.svg" width="56" height="56" alt="I block, turn" title="motion/turn/i"></td><td><img src="svg/motion/tetromino-o-turn.svg" width="56" height="56" alt="O block, turn" title="motion/turn/o"></td><td><img src="svg/motion/tetromino-t-turn.svg" width="56" height="56" alt="T block, turn" title="motion/turn/t"></td><td><img src="svg/motion/tetromino-s-turn.svg" width="56" height="56" alt="S block, turn" title="motion/turn/s"></td><td><img src="svg/motion/tetromino-z-turn.svg" width="56" height="56" alt="Z block, turn" title="motion/turn/z"></td><td><img src="svg/motion/tetromino-j-turn.svg" width="56" height="56" alt="J block, turn" title="motion/turn/j"></td><td><img src="svg/motion/tetromino-l-turn.svg" width="56" height="56" alt="L block, turn" title="motion/turn/l"></td></tr>
+<tr><td><b>Wobble</b><br><code>motion/wobble</code></td><td><img src="svg/motion/tetromino-i-wobble.svg" width="56" height="56" alt="I block, wobble" title="motion/wobble/i"></td><td><img src="svg/motion/tetromino-o-wobble.svg" width="56" height="56" alt="O block, wobble" title="motion/wobble/o"></td><td><img src="svg/motion/tetromino-t-wobble.svg" width="56" height="56" alt="T block, wobble" title="motion/wobble/t"></td><td><img src="svg/motion/tetromino-s-wobble.svg" width="56" height="56" alt="S block, wobble" title="motion/wobble/s"></td><td><img src="svg/motion/tetromino-z-wobble.svg" width="56" height="56" alt="Z block, wobble" title="motion/wobble/z"></td><td><img src="svg/motion/tetromino-j-wobble.svg" width="56" height="56" alt="J block, wobble" title="motion/wobble/j"></td><td><img src="svg/motion/tetromino-l-wobble.svg" width="56" height="56" alt="L block, wobble" title="motion/wobble/l"></td></tr>
+<tr><td><b>Squash</b><br><code>motion/squash</code></td><td><img src="svg/motion/tetromino-i-squash.svg" width="56" height="56" alt="I block, squash" title="motion/squash/i"></td><td><img src="svg/motion/tetromino-o-squash.svg" width="56" height="56" alt="O block, squash" title="motion/squash/o"></td><td><img src="svg/motion/tetromino-t-squash.svg" width="56" height="56" alt="T block, squash" title="motion/squash/t"></td><td><img src="svg/motion/tetromino-s-squash.svg" width="56" height="56" alt="S block, squash" title="motion/squash/s"></td><td><img src="svg/motion/tetromino-z-squash.svg" width="56" height="56" alt="Z block, squash" title="motion/squash/z"></td><td><img src="svg/motion/tetromino-j-squash.svg" width="56" height="56" alt="J block, squash" title="motion/squash/j"></td><td><img src="svg/motion/tetromino-l-squash.svg" width="56" height="56" alt="L block, squash" title="motion/squash/l"></td></tr>
+<tr><td><b>Melt</b><br><code>motion/melt</code></td><td><img src="svg/motion/tetromino-i-melt.svg" width="56" height="56" alt="I block, melt" title="motion/melt/i"></td><td><img src="svg/motion/tetromino-o-melt.svg" width="56" height="56" alt="O block, melt" title="motion/melt/o"></td><td><img src="svg/motion/tetromino-t-melt.svg" width="56" height="56" alt="T block, melt" title="motion/melt/t"></td><td><img src="svg/motion/tetromino-s-melt.svg" width="56" height="56" alt="S block, melt" title="motion/melt/s"></td><td><img src="svg/motion/tetromino-z-melt.svg" width="56" height="56" alt="Z block, melt" title="motion/melt/z"></td><td><img src="svg/motion/tetromino-j-melt.svg" width="56" height="56" alt="J block, melt" title="motion/melt/j"></td><td><img src="svg/motion/tetromino-l-melt.svg" width="56" height="56" alt="L block, melt" title="motion/melt/l"></td></tr>
+</table>
+
+```html
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.0/svg/motion/tetromino-t-spin.svg"
+     width="32" height="32" alt="T block, spinning">
+```
 
 ## Install
 
 **CDN (no install).** Link a file straight from jsDelivr. Pin a version tag in production:
 
 ```html
-<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.0.1/svg/tetromino-t.svg"
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.0/svg/tetromino-t.svg"
      width="32" height="32" alt="T block">
 ```
 
@@ -85,7 +104,7 @@ Every file:
 npm install @lituus-io/tetromino
 ```
 
-**Download.** Copy the files you want from [`svg/`](svg/). There's nothing else to install.
+**Download.** Copy the files you want from [`svg/`](svg/) and [`svg/motion/`](svg/motion/). There's nothing else to install.
 
 ## Usage
 
@@ -119,7 +138,7 @@ Paste the file contents into your HTML. Then page CSS can recolour it, delay it,
 <svg class="still" …>…</svg>
 ```
 
-Each file defines its cell graphic with `id="c"`. If you inline **several different shapes on one page**, rename that id in each copy (for example `c` → `c-t` and `href="#c"` → `href="#c-t"`) so they don't pick up each other's colours. The [demo page](https://lituus-io.github.io/tetromino/) shows how this is done.
+Each drop icon defines its cell graphic with `id="c"`. If you inline **several different drop icons on one page**, rename that id in each copy (for example `c` → `c-t` and `href="#c"` → `href="#c-t"`) so they don't pick up each other's colours. The [demo page](https://lituus-io.github.io/tetromino/) shows how this is done. The motion files already use unique ids and class names, so any number of them can share a page as they are.
 
 ### JavaScript / TypeScript
 
@@ -141,6 +160,7 @@ To import the files directly in a bundler (Vite, webpack and others):
 
 ```js
 import tUrl from '@lituus-io/tetromino/svg/tetromino-t.svg';
+import tSpinUrl from '@lituus-io/tetromino/svg/motion/tetromino-t-spin.svg';
 ```
 
 **React example**
@@ -196,7 +216,7 @@ A staggered row:
 </div>
 ```
 
-The animation loops every 2.4 s. The drop takes up the first ~55% of each cycle and the shape rests for the rest.
+Every animation loops every 2.4 s. The drop takes up the first ~55% of each cycle and the shape rests for the rest.
 
 ## Sizes and legibility
 
@@ -213,10 +233,11 @@ The icons are built to be light:
 
 - **Only `transform` and `opacity` are animated**, the cheapest properties to animate, and no JavaScript runs. CI rejects any keyframe that animates another property.
 - **Measured cost.** A browser repaints an animated SVG inside an `<img>` on the main thread while it moves. In Chrome on an M-series Mac, all seven shapes on one page used about 3–4% of the main thread, and the same seven shapes repeated 300 times used about 10%. Repeats of one file are cheap because the browser shares a single copy. Inlining an SVG's markup in your HTML instead of using `<img>` lets the browser animate it on the GPU, at close to no main-thread cost.
-- **About 1.4 KB per file** before compression, and around 700 bytes gzipped. No fonts, images or scripts are pulled in.
+- **Small files.** About 1.4 KB per drop icon and 1.6–2.9 KB per motion before compression (well under 1 KB gzipped). No fonts, images or scripts are pulled in.
 - **No JavaScript** is needed to animate. The optional JS entry point only hands you the SVG strings.
 - **Browsers skip off-screen work.** Animations inside `<img>` elements that aren't visible aren't painted.
 - **Each cycle mostly rests.** The drop takes about 1.3 s of each 2.4 s loop. Set `--loops: 1` when you only need it once.
+- **Many different animated icons as `<img>` add up.** Each distinct animated file shown through `<img>` is repainted separately, so a page with dozens of different ones is better served by inline SVG.
 
 ## Accessibility
 
@@ -230,16 +251,15 @@ All current evergreen browsers (Chrome, Edge, Firefox, Safari on desktop and mob
 
 ## Pro pack
 
-This repository is the **free core**: the seven base shapes with the default drop animation, MIT-licensed, yours to use anywhere.
+This repository is the **free core**: the seven base shapes with the drop animation and the five motions as animated SVG, MIT-licensed, yours to use anywhere.
 
 A paid **Pro pack** extends the same characters. It is sold separately under a commercial license and is not part of this repository:
 
 - **Dance moves:** every character dances (bop, shimmy, twist, wave-through, robot, disco, hop-step and spin-out), synced to your tempo with one `--bpm` variable
 - **Status animations:** loader, progress, success, error, sleepy and thinking
-- **More motions:** spin, turn, wobble, squash and melt
 - **Extra expressions:** nine moods plus winter, halloween and party looks
 - **Scenes:** wave, stack loader, line clear, conversation, conga line, dance-off and a dance floor
-- **Lottie, GIF, WebP and PNG exports** for apps, slides, chat and anywhere SVG doesn't fit
+- **Lottie, GIF, WebP and PNG exports** of every animation (the free motions included) for apps, slides, chat and anywhere SVG doesn't fit
 - **Components:** a Web Component with React and Vue wrappers, with eye-follow, squish, drag, scroll reveal and a toggle switch
 
 <!-- Replace with your storefront link(s) when the pack is live. -->
@@ -249,7 +269,7 @@ Purchases support continued development of the free core.
 
 ## Building from source
 
-Every published file is generated by one standard-library Python script.
+The drop icons, the JS entry point and the demo page are generated by one standard-library Python script. The motion SVGs in `svg/motion/` are committed as they are.
 
 ```sh
 git clone https://github.com/lituus-io/tetromino.git
@@ -263,7 +283,8 @@ Requirements: Python 3.8+ and Node 18+ (Node is only needed for `npm test`).
 Repository layout:
 
 ```
-svg/               the seven icons (generated)
+svg/               the seven drop icons (generated)
+svg/motion/        the 35 motion icons
 index.js           ESM entry: SVG strings + helpers (generated)
 index.d.ts         TypeScript types (generated)
 docs/index.html    demo page (generated)
@@ -279,9 +300,9 @@ Issues and pull requests are welcome, especially rendering bugs, accessibility i
 
 1. Change `scripts/build.py`, then run `python3 scripts/build.py` and `npm test`.
 2. Commit the regenerated files with your change.
-3. Keep each SVG under the 1.6 KB budget enforced by `scripts/check.py`.
+3. Keep each SVG under the budget enforced by `scripts/check.py` (1.6 KB for drop icons, 3 KB for motions).
 
-New motions and expressions are part of the Pro pack, so pull requests that add them to this repository can't be accepted.
+New animations and expressions are part of the Pro pack, so pull requests that add them to this repository can't be accepted.
 
 ## License
 
