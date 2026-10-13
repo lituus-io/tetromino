@@ -119,16 +119,23 @@ def inline(k, s, size, extra=""):
 def img(k, s, size, frag=""):
     return f'<img width="{size}" height="{size}" alt="{k.upper()} block" src="data:image/svg+xml,{quote(s)}{frag}">'
 
+VERSION = json.loads((ROOT / "package.json").read_text())["version"]
+
+def pick(key, label, inner, frag=""):  # clickable icon: shows its code in the panel below
+    f = f' data-f="{frag}"' if frag else ""
+    return f'<button type="button" data-k="{key}"{f} aria-label="Code for {label}">{inner}</button>'
+
 rows = []
 for size in (16, 24, 32, 64, 128):
-    cells = "".join(f"<td>{img(k, s, size)}</td>" for k, s in files.items())
+    cells = "".join(f"<td>{pick(k, f'{k.upper()} block', img(k, s, size))}</td>" for k, s in files.items())
     rows.append(f"<tr><th>{size}px</th>{cells}</tr>")
 
 alt = ["#0f766e", "#b45309", "#be185d", "#4d7c0f", "#7c3aed", "#0369a1", "#c2410c"]
 recolor = "".join(
     f'<td>{inline(f"{k}alt", s, 64, f"--c:{alt[i]};--delay:{i*0.15:.2f}s")}</td>'
     for i, (k, s) in enumerate(files.items()))
-still = "".join(f"<td>{img(k, s, 48, '#still')}</td>" for k, s in files.items())
+still = "".join(f"<td>{pick(k, f'{k.upper()} block, still', img(k, s, 48, '#still'), '#still')}</td>"
+                for k, s in files.items())
 MOTIONS = ["spin", "turn", "wobble", "squash", "melt"]
 
 def motion(k, m, size=48):  # inline copy; each motion file already uses unique ids
@@ -136,7 +143,16 @@ def motion(k, m, size=48):  # inline copy; each motion file already uses unique 
     return s.replace(' id="still"', "").replace('width="32" height="32"', f'width="{size}" height="{size}"', 1)
 
 motion_rows = "".join(
-    f"<tr><th>{m}</th>" + "".join(f"<td>{motion(k, m)}</td>" for k in files) + "</tr>" for m in MOTIONS)
+    f"<tr><th>{m}</th>" + "".join(f"<td>{pick(f'{k}-{m}', f'{k.upper()} block, {m}', motion(k, m))}</td>"
+                                  for k in files) + "</tr>" for m in MOTIONS)
+
+# Data for the code panel: file path, label and markup of every icon.
+code = {k: {"p": f"svg/tetromino-{k}.svg", "l": f"{k.upper()} block", "s": s} for k, s in files.items()}
+for m in MOTIONS:
+    for k in files:
+        code[f"{k}-{m}"] = {"p": f"svg/motion/tetromino-{k}-{m}.svg", "l": f"{k.upper()} block, {m}",
+                            "s": (SVG_DIR / "motion" / f"tetromino-{k}-{m}.svg").read_text().strip()}
+code_json = json.dumps(code, separators=(",", ":")).replace("</", "<\\/")
 sizes = "".join(f"<td>{len(s.encode())} B</td>" for s in files.values())
 heads = "".join(f"<th>{k.upper()}</th>" for k in files)
 
@@ -144,18 +160,28 @@ html = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Tetromino</title>
 <meta name="author" content="spicyzhug@gmail.com"><meta name="copyright" content="lituus-io. All rights reserved.">
 <style>
-:root{{--bg:#f8fafc;--fg:#0f172a;--mut:#64748b;--line:#e2e8f0}}
-@media (prefers-color-scheme:dark){{:root:not([data-theme=light]){{--bg:#0b1020;--fg:#e2e8f0;--mut:#94a3b8;--line:#1e293b}}}}
+:root{{--bg:#f8fafc;--fg:#0f172a;--mut:#64748b;--line:#e2e8f0;--acc:#6366f1}}
+@media (prefers-color-scheme:dark){{:root:not([data-theme=light]){{--bg:#0b1020;--fg:#e2e8f0;--mut:#94a3b8;--line:#1e293b;--acc:#818cf8}}}}
 body{{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif;padding:24px 16px}}
 main{{max-width:760px;margin:auto}} h1{{font-size:22px;margin:0 0 4px}} h2{{font-size:15px;margin:28px 0 8px}}
 p{{color:var(--mut);margin:0 0 12px}} .wrap{{overflow-x:auto}} a{{color:inherit}}
 table{{border-collapse:collapse}} td,th{{padding:8px 10px;text-align:center;vertical-align:middle;border-bottom:1px solid var(--line)}}
 th{{color:var(--mut);font-weight:500;font-size:13px}} td{{font-size:12px;color:var(--mut)}}
+td button{{display:inline-flex;background:none;border:0;padding:4px;margin:0;border-radius:8px;cursor:pointer;color:inherit}}
+td button:hover{{background:var(--line)}} td button:focus-visible,td button[aria-pressed=true]{{outline:2px solid var(--acc);outline-offset:1px}}
+#code{{position:sticky;bottom:0;margin-top:24px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:0 -6px 20px rgba(15,23,42,.08)}}
+#code h2{{margin:0 0 8px}} .snip{{display:flex;gap:8px;align-items:flex-start;margin:6px 0}}
+.snip b{{flex:0 0 84px;font-size:12px;font-weight:500;color:var(--mut);padding-top:7px}}
+pre{{flex:1;min-width:0;margin:0;padding:6px 10px;background:var(--line);border-radius:8px;font:12px/1.5 ui-monospace,monospace;overflow-x:auto;white-space:pre;max-height:4.6em}}
+.btn{{flex:0 0 auto;font:inherit;font-size:12px;padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}}
+.btn:hover{{border-color:var(--acc)}}
+@media (max-width:520px){{.snip{{gap:6px}} .snip b{{flex-basis:34px}} #code{{padding:10px}}}}
 </style></head><body><main>
 <h1>Tetromino</h1>
 <p>Seven animated four-block icons in six animations, each a single dependency-free SVG of 1.5–3&nbsp;KB.
 Below 20px the face drops away so the outline and colour carry it.
 <a href="https://github.com/lituus-io/tetromino">Source on GitHub</a>. &copy; 2026 lituus-io. All rights reserved. MIT License.</p>
+<p><b>Click any icon to get its code</b>: an <code>&lt;img&gt;</code> tag, an npm import, or the SVG markup to paste inline.</p>
 <h2>Every size (as &lt;img&gt;)</h2><div class="wrap"><table><tr><th></th>{heads}</tr>{"".join(rows)}
 <tr><th>file</th>{sizes}</tr></table></div>
 <h2>Static frame (<code>#still</code>)</h2><div class="wrap"><table><tr><th></th>{heads}</tr><tr><th>48px</th>{still}</tr></table></div>
@@ -164,7 +190,49 @@ Below 20px the face drops away so the outline and colour carry it.
 <div class="wrap"><table><tr><th></th>{heads}</tr>{motion_rows}</table></div>
 <h2>Recoloured and staggered with CSS variables (<code>--c</code>, <code>--delay</code>)</h2>
 <div class="wrap"><table><tr>{recolor}</tr></table></div>
-</main></body></html>
+<section id="code" aria-live="polite">
+<h2 id="code-title">Code</h2>
+<div class="snip"><b>HTML</b><pre id="c-img"></pre><button class="btn" type="button" data-copy="c-img">Copy</button></div>
+<div class="snip"><b>npm</b><pre id="c-npm"></pre><button class="btn" type="button" data-copy="c-npm">Copy</button></div>
+<div class="snip"><b>SVG</b><pre id="c-svg"></pre><button class="btn" type="button" data-copy="c-svg">Copy</button>
+<button class="btn" type="button" id="dl">Download</button></div>
+</section>
+</main>
+<script type="application/json" id="icons">{code_json}</script>
+<script>
+const D = JSON.parse(document.getElementById('icons').textContent);
+const CDN = 'https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v{VERSION}/';
+const $ = id => document.getElementById(id);
+let cur = null;
+function show(btn) {{
+  const k = btn.dataset.k, f = btn.dataset.f || '', d = D[k];
+  cur = d;
+  document.querySelectorAll('[aria-pressed=true]').forEach(b => b.setAttribute('aria-pressed', 'false'));
+  btn.setAttribute('aria-pressed', 'true');
+  $('code-title').textContent = 'Code for ' + d.l + (f ? ' (static frame)' : '');
+  $('c-img').textContent = `<img src="${{CDN}}${{d.p}}${{f}}" width="32" height="32" alt="${{d.l}}">`;
+  $('c-npm').textContent = `import url from '@lituus-io/tetromino/${{d.p}}';`;
+  $('c-svg').textContent = f ? d.s.replace('<svg ', '<svg class="still" ') : d.s;
+}}
+async function copy(btn, text) {{
+  try {{ await navigator.clipboard.writeText(text); }}
+  catch {{ const t = document.createElement('textarea'); t.value = text; document.body.append(t); t.select();
+          document.execCommand('copy'); t.remove(); }}
+  const was = btn.textContent; btn.textContent = 'Copied'; setTimeout(() => btn.textContent = was, 1200);
+}}
+document.addEventListener('click', e => {{
+  const pickBtn = e.target.closest('[data-k]');
+  if (pickBtn) return show(pickBtn);
+  const c = e.target.closest('[data-copy]');
+  if (c) return copy(c, $(c.dataset.copy).textContent);
+  if (e.target.id === 'dl' && cur) {{
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([cur.s + '\\n'], {{type: 'image/svg+xml'}}));
+    a.download = cur.p.split('/').pop(); a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  }}
+}});
+show(document.querySelector('[data-k="t-spin"]'));
+</script></body></html>
 """
 DOCS_DIR.mkdir(exist_ok=True)
 (DOCS_DIR / "index.html").write_text(html)

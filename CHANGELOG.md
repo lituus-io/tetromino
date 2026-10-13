@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1 (2026-10-13)
+
+- Live demo: click any icon to copy its `<img>` tag, npm import or inline SVG, or download the file
+- README: ready-to-paste `<img>` tags for every drop and motion icon
+
 ## 1.1.0 (2026-10-13)
 
 - Five new motions for every shape, as 35 animated SVGs in `svg/motion/`: spin, turn, wobble, squash and melt

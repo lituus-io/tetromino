@@ -60,6 +60,21 @@ Tetrominoes are the seven shapes you can make by joining four equal squares edge
 | <img src="svg/tetromino-j.svg" width="32" height="32" alt=""> **J** | `svg/tetromino-j.svg` | `#84cc16` lime |
 | <img src="svg/tetromino-l.svg" width="32" height="32" alt=""> **L** | `svg/tetromino-l.svg` | `#ec4899` pink |
 
+<details>
+<summary>Code for the drop icons</summary>
+
+```html
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/tetromino-i.svg" width="32" height="32" alt="I block">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/tetromino-o.svg" width="32" height="32" alt="O block">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/tetromino-t.svg" width="32" height="32" alt="T block">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/tetromino-s.svg" width="32" height="32" alt="S block">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/tetromino-z.svg" width="32" height="32" alt="Z block">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/tetromino-j.svg" width="32" height="32" alt="J block">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/tetromino-l.svg" width="32" height="32" alt="L block">
+```
+
+</details>
+
 Every file:
 
 - is a single standalone SVG with its CSS animation embedded, so it works anywhere an image does
@@ -77,24 +92,92 @@ Each shape also comes in five looping motions, in [`svg/motion/`](svg/motion/). 
 
 <table>
 <tr><th></th><th>I</th><th>O</th><th>T</th><th>S</th><th>Z</th><th>J</th><th>L</th></tr>
-<tr><td><b>Spin</b><br><code>motion/spin</code></td><td><img src="svg/motion/tetromino-i-spin.svg" width="56" height="56" alt="I block, spin" title="motion/spin/i"></td><td><img src="svg/motion/tetromino-o-spin.svg" width="56" height="56" alt="O block, spin" title="motion/spin/o"></td><td><img src="svg/motion/tetromino-t-spin.svg" width="56" height="56" alt="T block, spin" title="motion/spin/t"></td><td><img src="svg/motion/tetromino-s-spin.svg" width="56" height="56" alt="S block, spin" title="motion/spin/s"></td><td><img src="svg/motion/tetromino-z-spin.svg" width="56" height="56" alt="Z block, spin" title="motion/spin/z"></td><td><img src="svg/motion/tetromino-j-spin.svg" width="56" height="56" alt="J block, spin" title="motion/spin/j"></td><td><img src="svg/motion/tetromino-l-spin.svg" width="56" height="56" alt="L block, spin" title="motion/spin/l"></td></tr>
-<tr><td><b>Turn</b><br><code>motion/turn</code></td><td><img src="svg/motion/tetromino-i-turn.svg" width="56" height="56" alt="I block, turn" title="motion/turn/i"></td><td><img src="svg/motion/tetromino-o-turn.svg" width="56" height="56" alt="O block, turn" title="motion/turn/o"></td><td><img src="svg/motion/tetromino-t-turn.svg" width="56" height="56" alt="T block, turn" title="motion/turn/t"></td><td><img src="svg/motion/tetromino-s-turn.svg" width="56" height="56" alt="S block, turn" title="motion/turn/s"></td><td><img src="svg/motion/tetromino-z-turn.svg" width="56" height="56" alt="Z block, turn" title="motion/turn/z"></td><td><img src="svg/motion/tetromino-j-turn.svg" width="56" height="56" alt="J block, turn" title="motion/turn/j"></td><td><img src="svg/motion/tetromino-l-turn.svg" width="56" height="56" alt="L block, turn" title="motion/turn/l"></td></tr>
-<tr><td><b>Wobble</b><br><code>motion/wobble</code></td><td><img src="svg/motion/tetromino-i-wobble.svg" width="56" height="56" alt="I block, wobble" title="motion/wobble/i"></td><td><img src="svg/motion/tetromino-o-wobble.svg" width="56" height="56" alt="O block, wobble" title="motion/wobble/o"></td><td><img src="svg/motion/tetromino-t-wobble.svg" width="56" height="56" alt="T block, wobble" title="motion/wobble/t"></td><td><img src="svg/motion/tetromino-s-wobble.svg" width="56" height="56" alt="S block, wobble" title="motion/wobble/s"></td><td><img src="svg/motion/tetromino-z-wobble.svg" width="56" height="56" alt="Z block, wobble" title="motion/wobble/z"></td><td><img src="svg/motion/tetromino-j-wobble.svg" width="56" height="56" alt="J block, wobble" title="motion/wobble/j"></td><td><img src="svg/motion/tetromino-l-wobble.svg" width="56" height="56" alt="L block, wobble" title="motion/wobble/l"></td></tr>
-<tr><td><b>Squash</b><br><code>motion/squash</code></td><td><img src="svg/motion/tetromino-i-squash.svg" width="56" height="56" alt="I block, squash" title="motion/squash/i"></td><td><img src="svg/motion/tetromino-o-squash.svg" width="56" height="56" alt="O block, squash" title="motion/squash/o"></td><td><img src="svg/motion/tetromino-t-squash.svg" width="56" height="56" alt="T block, squash" title="motion/squash/t"></td><td><img src="svg/motion/tetromino-s-squash.svg" width="56" height="56" alt="S block, squash" title="motion/squash/s"></td><td><img src="svg/motion/tetromino-z-squash.svg" width="56" height="56" alt="Z block, squash" title="motion/squash/z"></td><td><img src="svg/motion/tetromino-j-squash.svg" width="56" height="56" alt="J block, squash" title="motion/squash/j"></td><td><img src="svg/motion/tetromino-l-squash.svg" width="56" height="56" alt="L block, squash" title="motion/squash/l"></td></tr>
-<tr><td><b>Melt</b><br><code>motion/melt</code></td><td><img src="svg/motion/tetromino-i-melt.svg" width="56" height="56" alt="I block, melt" title="motion/melt/i"></td><td><img src="svg/motion/tetromino-o-melt.svg" width="56" height="56" alt="O block, melt" title="motion/melt/o"></td><td><img src="svg/motion/tetromino-t-melt.svg" width="56" height="56" alt="T block, melt" title="motion/melt/t"></td><td><img src="svg/motion/tetromino-s-melt.svg" width="56" height="56" alt="S block, melt" title="motion/melt/s"></td><td><img src="svg/motion/tetromino-z-melt.svg" width="56" height="56" alt="Z block, melt" title="motion/melt/z"></td><td><img src="svg/motion/tetromino-j-melt.svg" width="56" height="56" alt="J block, melt" title="motion/melt/j"></td><td><img src="svg/motion/tetromino-l-melt.svg" width="56" height="56" alt="L block, melt" title="motion/melt/l"></td></tr>
+<tr><td><b>Spin</b><br><code>motion/spin</code></td><td><a href="svg/motion/tetromino-i-spin.svg"><img src="svg/motion/tetromino-i-spin.svg" width="56" height="56" alt="I block, spin" title="motion/spin/i"></a></td><td><a href="svg/motion/tetromino-o-spin.svg"><img src="svg/motion/tetromino-o-spin.svg" width="56" height="56" alt="O block, spin" title="motion/spin/o"></a></td><td><a href="svg/motion/tetromino-t-spin.svg"><img src="svg/motion/tetromino-t-spin.svg" width="56" height="56" alt="T block, spin" title="motion/spin/t"></a></td><td><a href="svg/motion/tetromino-s-spin.svg"><img src="svg/motion/tetromino-s-spin.svg" width="56" height="56" alt="S block, spin" title="motion/spin/s"></a></td><td><a href="svg/motion/tetromino-z-spin.svg"><img src="svg/motion/tetromino-z-spin.svg" width="56" height="56" alt="Z block, spin" title="motion/spin/z"></a></td><td><a href="svg/motion/tetromino-j-spin.svg"><img src="svg/motion/tetromino-j-spin.svg" width="56" height="56" alt="J block, spin" title="motion/spin/j"></a></td><td><a href="svg/motion/tetromino-l-spin.svg"><img src="svg/motion/tetromino-l-spin.svg" width="56" height="56" alt="L block, spin" title="motion/spin/l"></a></td></tr>
+<tr><td><b>Turn</b><br><code>motion/turn</code></td><td><a href="svg/motion/tetromino-i-turn.svg"><img src="svg/motion/tetromino-i-turn.svg" width="56" height="56" alt="I block, turn" title="motion/turn/i"></a></td><td><a href="svg/motion/tetromino-o-turn.svg"><img src="svg/motion/tetromino-o-turn.svg" width="56" height="56" alt="O block, turn" title="motion/turn/o"></a></td><td><a href="svg/motion/tetromino-t-turn.svg"><img src="svg/motion/tetromino-t-turn.svg" width="56" height="56" alt="T block, turn" title="motion/turn/t"></a></td><td><a href="svg/motion/tetromino-s-turn.svg"><img src="svg/motion/tetromino-s-turn.svg" width="56" height="56" alt="S block, turn" title="motion/turn/s"></a></td><td><a href="svg/motion/tetromino-z-turn.svg"><img src="svg/motion/tetromino-z-turn.svg" width="56" height="56" alt="Z block, turn" title="motion/turn/z"></a></td><td><a href="svg/motion/tetromino-j-turn.svg"><img src="svg/motion/tetromino-j-turn.svg" width="56" height="56" alt="J block, turn" title="motion/turn/j"></a></td><td><a href="svg/motion/tetromino-l-turn.svg"><img src="svg/motion/tetromino-l-turn.svg" width="56" height="56" alt="L block, turn" title="motion/turn/l"></a></td></tr>
+<tr><td><b>Wobble</b><br><code>motion/wobble</code></td><td><a href="svg/motion/tetromino-i-wobble.svg"><img src="svg/motion/tetromino-i-wobble.svg" width="56" height="56" alt="I block, wobble" title="motion/wobble/i"></a></td><td><a href="svg/motion/tetromino-o-wobble.svg"><img src="svg/motion/tetromino-o-wobble.svg" width="56" height="56" alt="O block, wobble" title="motion/wobble/o"></a></td><td><a href="svg/motion/tetromino-t-wobble.svg"><img src="svg/motion/tetromino-t-wobble.svg" width="56" height="56" alt="T block, wobble" title="motion/wobble/t"></a></td><td><a href="svg/motion/tetromino-s-wobble.svg"><img src="svg/motion/tetromino-s-wobble.svg" width="56" height="56" alt="S block, wobble" title="motion/wobble/s"></a></td><td><a href="svg/motion/tetromino-z-wobble.svg"><img src="svg/motion/tetromino-z-wobble.svg" width="56" height="56" alt="Z block, wobble" title="motion/wobble/z"></a></td><td><a href="svg/motion/tetromino-j-wobble.svg"><img src="svg/motion/tetromino-j-wobble.svg" width="56" height="56" alt="J block, wobble" title="motion/wobble/j"></a></td><td><a href="svg/motion/tetromino-l-wobble.svg"><img src="svg/motion/tetromino-l-wobble.svg" width="56" height="56" alt="L block, wobble" title="motion/wobble/l"></a></td></tr>
+<tr><td><b>Squash</b><br><code>motion/squash</code></td><td><a href="svg/motion/tetromino-i-squash.svg"><img src="svg/motion/tetromino-i-squash.svg" width="56" height="56" alt="I block, squash" title="motion/squash/i"></a></td><td><a href="svg/motion/tetromino-o-squash.svg"><img src="svg/motion/tetromino-o-squash.svg" width="56" height="56" alt="O block, squash" title="motion/squash/o"></a></td><td><a href="svg/motion/tetromino-t-squash.svg"><img src="svg/motion/tetromino-t-squash.svg" width="56" height="56" alt="T block, squash" title="motion/squash/t"></a></td><td><a href="svg/motion/tetromino-s-squash.svg"><img src="svg/motion/tetromino-s-squash.svg" width="56" height="56" alt="S block, squash" title="motion/squash/s"></a></td><td><a href="svg/motion/tetromino-z-squash.svg"><img src="svg/motion/tetromino-z-squash.svg" width="56" height="56" alt="Z block, squash" title="motion/squash/z"></a></td><td><a href="svg/motion/tetromino-j-squash.svg"><img src="svg/motion/tetromino-j-squash.svg" width="56" height="56" alt="J block, squash" title="motion/squash/j"></a></td><td><a href="svg/motion/tetromino-l-squash.svg"><img src="svg/motion/tetromino-l-squash.svg" width="56" height="56" alt="L block, squash" title="motion/squash/l"></a></td></tr>
+<tr><td><b>Melt</b><br><code>motion/melt</code></td><td><a href="svg/motion/tetromino-i-melt.svg"><img src="svg/motion/tetromino-i-melt.svg" width="56" height="56" alt="I block, melt" title="motion/melt/i"></a></td><td><a href="svg/motion/tetromino-o-melt.svg"><img src="svg/motion/tetromino-o-melt.svg" width="56" height="56" alt="O block, melt" title="motion/melt/o"></a></td><td><a href="svg/motion/tetromino-t-melt.svg"><img src="svg/motion/tetromino-t-melt.svg" width="56" height="56" alt="T block, melt" title="motion/melt/t"></a></td><td><a href="svg/motion/tetromino-s-melt.svg"><img src="svg/motion/tetromino-s-melt.svg" width="56" height="56" alt="S block, melt" title="motion/melt/s"></a></td><td><a href="svg/motion/tetromino-z-melt.svg"><img src="svg/motion/tetromino-z-melt.svg" width="56" height="56" alt="Z block, melt" title="motion/melt/z"></a></td><td><a href="svg/motion/tetromino-j-melt.svg"><img src="svg/motion/tetromino-j-melt.svg" width="56" height="56" alt="J block, melt" title="motion/melt/j"></a></td><td><a href="svg/motion/tetromino-l-melt.svg"><img src="svg/motion/tetromino-l-melt.svg" width="56" height="56" alt="L block, melt" title="motion/melt/l"></a></td></tr>
 </table>
 
+Copy the tag for any icon (each code block has a copy button), or click an icon on the [live demo](https://lituus-io.github.io/tetromino/) to copy its `<img>` tag, npm import or inline SVG.
+
+<details>
+<summary>Code for the spin icons</summary>
+
 ```html
-<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.0/svg/motion/tetromino-t-spin.svg"
-     width="32" height="32" alt="T block, spinning">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-i-spin.svg" width="32" height="32" alt="I block, spin">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-o-spin.svg" width="32" height="32" alt="O block, spin">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-t-spin.svg" width="32" height="32" alt="T block, spin">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-s-spin.svg" width="32" height="32" alt="S block, spin">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-z-spin.svg" width="32" height="32" alt="Z block, spin">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-j-spin.svg" width="32" height="32" alt="J block, spin">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-l-spin.svg" width="32" height="32" alt="L block, spin">
 ```
+
+</details>
+<details>
+<summary>Code for the turn icons</summary>
+
+```html
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-i-turn.svg" width="32" height="32" alt="I block, turn">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-o-turn.svg" width="32" height="32" alt="O block, turn">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-t-turn.svg" width="32" height="32" alt="T block, turn">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-s-turn.svg" width="32" height="32" alt="S block, turn">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-z-turn.svg" width="32" height="32" alt="Z block, turn">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-j-turn.svg" width="32" height="32" alt="J block, turn">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-l-turn.svg" width="32" height="32" alt="L block, turn">
+```
+
+</details>
+<details>
+<summary>Code for the wobble icons</summary>
+
+```html
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-i-wobble.svg" width="32" height="32" alt="I block, wobble">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-o-wobble.svg" width="32" height="32" alt="O block, wobble">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-t-wobble.svg" width="32" height="32" alt="T block, wobble">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-s-wobble.svg" width="32" height="32" alt="S block, wobble">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-z-wobble.svg" width="32" height="32" alt="Z block, wobble">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-j-wobble.svg" width="32" height="32" alt="J block, wobble">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-l-wobble.svg" width="32" height="32" alt="L block, wobble">
+```
+
+</details>
+<details>
+<summary>Code for the squash icons</summary>
+
+```html
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-i-squash.svg" width="32" height="32" alt="I block, squash">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-o-squash.svg" width="32" height="32" alt="O block, squash">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-t-squash.svg" width="32" height="32" alt="T block, squash">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-s-squash.svg" width="32" height="32" alt="S block, squash">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-z-squash.svg" width="32" height="32" alt="Z block, squash">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-j-squash.svg" width="32" height="32" alt="J block, squash">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-l-squash.svg" width="32" height="32" alt="L block, squash">
+```
+
+</details>
+<details>
+<summary>Code for the melt icons</summary>
+
+```html
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-i-melt.svg" width="32" height="32" alt="I block, melt">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-o-melt.svg" width="32" height="32" alt="O block, melt">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-t-melt.svg" width="32" height="32" alt="T block, melt">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-s-melt.svg" width="32" height="32" alt="S block, melt">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-z-melt.svg" width="32" height="32" alt="Z block, melt">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-j-melt.svg" width="32" height="32" alt="J block, melt">
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/motion/tetromino-l-melt.svg" width="32" height="32" alt="L block, melt">
+```
+
+</details>
 
 ## Install
 
 **CDN (no install).** Link a file straight from jsDelivr. Pin a version tag in production:
 
 ```html
-<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.0/svg/tetromino-t.svg"
+<img src="https://cdn.jsdelivr.net/gh/lituus-io/tetromino@v1.1.1/svg/tetromino-t.svg"
      width="32" height="32" alt="T block">
 ```
 
